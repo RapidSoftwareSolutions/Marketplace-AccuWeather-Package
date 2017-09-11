@@ -1,0 +1,4601 @@
+{
+    "package": "AccuWeather",
+    "tagline": "AccuWeather API",
+    "description": "AccuWeather provides hourly and Minute by Minute\u2122 forecasts with Superior Accuracy\u2122 for any longitude\/latitude on Earth, with customized content and engaging video presentations available on smart phones, tablets, free wired and mobile Internet sites, connected TVs, and Internet appliances, as well as via radio, television, and newspapers.",
+    "image": "https:\/\/logo.clearbit.com\/accuweather.com",
+    "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-AccuWeather-Package",
+    "keywords": [
+        "API",
+        "weather",
+        "accuweather",
+        "rainy",
+        "sunny"
+    ],
+    "accounts": {
+        "domain": "accuweather.com\/",
+        "credentials": [
+            "apiKey"
+        ]
+    },
+    "blocks": [
+        {
+            "name": "getCurrentConditionsByLocationKey",
+            "description": "Current Conditions By LocationKey",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                },
+                {
+                    "name": "getPhotos",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value specifies whether or not to include photos representing the requested location and current condition",
+                    "required": false
+                },
+                {
+                    "name": "group",
+                    "type": "Number",
+                    "info": "Integer value (50, 100, or 150) that specifies the number of cities to return",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/currentconditions\/v1\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "details",
+                            "getPhotos",
+                            "group",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "get6HoursConditionsByLocationKey",
+            "description": "Historical Current Conditions (past 6 hours) By LocationKey",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                },
+                {
+                    "name": "getPhotos",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value specifies whether or not to include photos representing the requested location and current condition",
+                    "required": false
+                },
+                {
+                    "name": "group",
+                    "type": "Number",
+                    "info": "Integer value (50, 100, or 150) that specifies the number of cities to return",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/currentconditions\/v1\/{$data['locationKey']}\/historical.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "details",
+                            "getPhotos",
+                            "group",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "get24HoursConditionsByLocationKey",
+            "description": "Historical Current Conditions (past 24 hours) By LocationKey",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                },
+                {
+                    "name": "getPhotos",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value specifies whether or not to include photos representing the requested location and current condition",
+                    "required": false
+                },
+                {
+                    "name": "group",
+                    "type": "Number",
+                    "info": "Integer value (50, 100, or 150) that specifies the number of cities to return",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/currentconditions\/v1\/{$data['locationKey']}\/historical\/24.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "details",
+                            "getPhotos",
+                            "group",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getCurrentConditionsForTopCities",
+            "description": "Current Conditions for Top Cities",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                },
+                {
+                    "name": "getPhotos",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value specifies whether or not to include photos representing the requested location and current condition",
+                    "required": false
+                },
+                {
+                    "name": "group",
+                    "type": "Number",
+                    "info": "Integer value (50, 100, or 150) that specifies the number of cities to return",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/currentconditions\/v1\/topcities\/{$data['group']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "details",
+                            "getPhotos",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getMinuteForecastByCoordinates",
+            "description": "MinuteCast\u2122 Forecasts By Latitude, Longitude",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "coordinates",
+                    "type": "Map",
+                    "info": "Coordinates for the forecast",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "q"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/minute.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "q",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "get1MinuteForecastByCoordinates",
+            "description": "MinuteCast\u2122 Premium 1-Minute Forecasts By Latitude, Longitude",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "coordinates",
+                    "type": "Map",
+                    "info": "Coordinates for the forecast",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "q"
+                    }
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/minute\/1minute.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "q",
+                            "apikey",
+                            "details"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "get5MinutesForecastByCoordinates",
+            "description": "MinuteCast\u2122 Premium 5-Minute Forecasts By Latitude, Longitude",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "coordinates",
+                    "type": "Map",
+                    "info": "Coordinates for the forecast",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "q"
+                    }
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/minute\/5minute.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "q",
+                            "apikey",
+                            "details"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "get15MinutesForecastByCoordinates",
+            "description": "MinuteCast\u2122 Premium 15-Minute Forecasts By Latitude, Longitude",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "coordinates",
+                    "type": "Map",
+                    "info": "Coordinates for the forecast",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "q"
+                    }
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/minute\/15minute.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "q",
+                            "apikey",
+                            "details"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getColorFullSpectrum",
+            "description": "MinuteCast\u2122 Premium Full Spectrum of Colors",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/minute\/colors.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "get1HourForecastByLocationKey",
+            "description": "1 Hour of Hourly Forecasts By Location Key",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                },
+                {
+                    "name": "metric",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies to return the data in either metric (=true) or imperial units ",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/hourly\/1hour\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "details",
+                            "metric",
+                            "group",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "get12HoursForecastByLocationKey",
+            "description": "12 Hours of Hourly Forecasts By Location Key",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                },
+                {
+                    "name": "metric",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies to return the data in either metric (=true) or imperial units ",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/hourly\/12hour\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "details",
+                            "metric",
+                            "group",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "get24HoursForecastByLocationKey",
+            "description": "24 Hours of Hourly Forecasts By Location Key",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                },
+                {
+                    "name": "metric",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies to return the data in either metric (=true) or imperial units ",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/hourly\/24hour\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "details",
+                            "metric",
+                            "group",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "get72HoursForecastByLocationKey",
+            "description": "72 Hours of Hourly Forecasts By Location Key",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                },
+                {
+                    "name": "metric",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies to return the data in either metric (=true) or imperial units ",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/hourly\/72hour\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "details",
+                            "metric",
+                            "group",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "get120HoursForecastByLocationKey",
+            "description": "120 Hours of Hourly Forecasts By Location Key",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                },
+                {
+                    "name": "metric",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies to return the data in either metric (=true) or imperial units ",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/hourly\/120hour\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "details",
+                            "metric",
+                            "group",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "get240HoursForecastByLocationKey",
+            "description": "240 Hours of Hourly Forecasts By Location Key",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                },
+                {
+                    "name": "metric",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies to return the data in either metric (=true) or imperial units ",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/hourly\/240hour\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "details",
+                            "metric",
+                            "group",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getForecastByLocationKey",
+            "description": "Daily Forecasts By Location Key",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "days",
+                    "type": "Select",
+                    "options": [
+                        "1day",
+                        "5day",
+                        "10day",
+                        "15day",
+                        "25day",
+                        "45day"
+                    ],
+                    "info": "Number of days to get forecast for",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                },
+                {
+                    "name": "metric",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies to return the data in either metric (=true) or imperial units ",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/daily\/{$data['days']}\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "details",
+                            "metric",
+                            "group",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getLocalWeatherByLocationKey",
+            "description": "LocalWeather By LocationKey",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                },
+                {
+                    "name": "getPhotos",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value specifies whether or not to include photos representing the requested location and current condition",
+                    "required": false
+                },
+                {
+                    "name": "metric",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies to return the data in either metric (=true) or imperial units ",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/localweather\/v1\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "details",
+                            "getPhotos",
+                            "metric",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAlertsByLocationKey",
+            "description": "Alerts By LocationKey",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/alerts\/v1\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "details",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getCurrentAirQualityByLocationKey",
+            "description": "Current Air Quality By LocationKey",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/airquality\/v1\/global\/observations\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getPastDayAirQualityByLocationKey",
+            "description": "Past Day Air Quality By LocationKey",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/airquality\/v1\/global\/observations\/1day\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "listDailyIndices",
+            "description": "Metadata List of Daily Indices",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/indices\/v1\/daily.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getIndiceByIndex",
+            "description": "Metadata of a Specific Index",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "indexId",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific index",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/indices\/v1\/daily\/{$data['indexId']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "listDailyIndicesGroups",
+            "description": "Metadata List of Index Groups",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/indices\/v1\/daily\/groups.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getIndiceByGroupId",
+            "description": "Metadata List of Indices in a Specific Group",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "groupId",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific group",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/indices\/v1\/daily\/groups\/{$data['groupId']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getLocationIndicesByIndexId",
+            "description": "Daily Indices By LocationKey and IndexId",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "days",
+                    "type": "Select",
+                    "options": [
+                        "1day",
+                        "5day",
+                        "10day",
+                        "15day"
+                    ],
+                    "info": "Days for get indice for",
+                    "required": true
+                },
+                {
+                    "name": "indexId",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific index",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/indices\/v1\/daily\/{$data['days']}\/{$data['locationKey']}\/{$data['indexId']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "details",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getLocationIndicesByGroupId",
+            "description": "Daily Indices By LocationKey and GroupId",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "days",
+                    "type": "Select",
+                    "options": [
+                        "1day",
+                        "5day",
+                        "10day",
+                        "15day"
+                    ],
+                    "info": "Days for get indice for",
+                    "required": true
+                },
+                {
+                    "name": "groupId",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific group",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "details",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/indices\/v1\/daily\/{$data['days']}\/{$data['locationKey']}\/groups\/{$data['groupId']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "details",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getWeatherAlarmByLocationKey",
+            "description": "DailyWeather Alarms By Location Key ",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "days",
+                    "type": "Select",
+                    "options": [
+                        "1day",
+                        "5day",
+                        "10day",
+                        "15day",
+                        "25day"
+                    ],
+                    "info": "Days for get indice for",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/alarms\/v1\/{$data['days']}\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getMonthClimoActualsByLocationKey",
+            "description": "Climo Actuals For Month By Location Key ",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "date",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy\/mm",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y\/m}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/climo\/v1\/actuals\/{$data['date']}\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getDayClimoActualsByLocationKey",
+            "description": "Climo Actuals For Day By Location Key ",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "date",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy\/mm\/dd",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y\/m\/d}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/climo\/v1\/actuals\/{$data['date']}\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getRangeClimoActualsByLocationKey",
+            "description": "Climo Actuals For date range By Location Key ",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "start",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy\/mm\/dd",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y\/m\/d}"
+                    }
+                },
+                {
+                    "name": "end",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy\/mm\/dd",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y\/m\/d}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/climo\/v1\/actuals\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey",
+                            "start",
+                            "end"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getMonthClimoRecordsByLocationKey",
+            "description": "Climo Records For Month By Location Key ",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "date",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy\/mm",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y\/m}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/climo\/v1\/records\/{$data['date']}\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getDayClimoRecordsByLocationKey",
+            "description": "Climo Records For Day By Location Key ",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "date",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy\/mm\/dd",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y\/m\/d}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/climo\/v1\/records\/{$data['date']}\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getRangeClimoRecordsByLocationKey",
+            "description": "Climo Records For date range By Location Key ",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "start",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy\/mm\/dd",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y\/m\/d}"
+                    }
+                },
+                {
+                    "name": "end",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy\/mm\/dd",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y\/m\/d}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/climo\/v1\/records\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey",
+                            "start",
+                            "end"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getMonthClimoNormalsByLocationKey",
+            "description": "Climo normals For Month By Location Key ",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "date",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy\/mm",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y\/m}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/climo\/v1\/normals\/{$data['date']}\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getDayClimoNormalsByLocationKey",
+            "description": "Climo normals For Day By Location Key ",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "date",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy\/mm\/dd",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y\/m\/d}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/climo\/v1\/normals\/{$data['date']}\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getRangeClimoNormalsByLocationKey",
+            "description": "Climo normals For date range By Location Key ",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "start",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy\/mm\/dd",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y\/m\/d}"
+                    }
+                },
+                {
+                    "name": "end",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy\/mm\/dd",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y\/m\/d}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/climo\/v1\/normals\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey",
+                            "start",
+                            "end"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getMonthClimoSummaryByLocationKey",
+            "description": "Climo summary For Month By Location Key ",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "date",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy\/mm",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y\/m}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/climo\/v1\/summary\/{$data['date']}\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "listCyclones",
+            "description": "Active Tropical Cyclones ",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "basinId",
+                    "type": "Select",
+                    "options": [
+                        "NP",
+                        "SP",
+                        "NI",
+                        "SI",
+                        "AL",
+                        "EP"
+                    ],
+                    "info": "Unique id used to identify a basin (NP, SP, NI, SI, AL, EP )",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/tropical\/v1\/storms\/active.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey",
+                            "basinId"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getSingleCyclone",
+            "description": "Get cyclone information",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "basinId",
+                    "type": "Select",
+                    "options": [
+                        "NP",
+                        "SP",
+                        "NI",
+                        "SI",
+                        "AL",
+                        "EP"
+                    ],
+                    "info": "Unique id used to identify a basin (NP, SP, NI, SI, AL, EP )",
+                    "required": true
+                },
+                {
+                    "name": "cycloneId",
+                    "type": "Number",
+                    "info": "Numeric id of the tropical cyclone",
+                    "required": true
+                },
+                {
+                    "name": "year",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/tropical\/v1\/storms\/{$data['year']}\/{$data['basinId']}\/{$data['cycloneId']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getSingleCyclonePosition",
+            "description": "Get cyclone current position",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "basinId",
+                    "type": "Select",
+                    "options": [
+                        "NP",
+                        "SP",
+                        "NI",
+                        "SI",
+                        "AL",
+                        "EP"
+                    ],
+                    "info": "Unique id used to identify a basin (NP, SP, NI, SI, AL, EP )",
+                    "required": true
+                },
+                {
+                    "name": "cycloneId",
+                    "type": "Number",
+                    "info": "Numeric id of the tropical cyclone",
+                    "required": true
+                },
+                {
+                    "name": "year",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/tropical\/v1\/storms\/{$data['year']}\/{$data['basinId']}\/{$data['cycloneId']}\/positions\/current.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "listSingleCyclonePositions",
+            "description": "List cyclone current positions",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "basinId",
+                    "type": "Select",
+                    "options": [
+                        "NP",
+                        "SP",
+                        "NI",
+                        "SI",
+                        "AL",
+                        "EP"
+                    ],
+                    "info": "Unique id used to identify a basin (NP, SP, NI, SI, AL, EP )",
+                    "required": true
+                },
+                {
+                    "name": "cycloneId",
+                    "type": "Number",
+                    "info": "Numeric id of the tropical cyclone",
+                    "required": true
+                },
+                {
+                    "name": "year",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/tropical\/v1\/storms\/{$data['year']}\/{$data['basinId']}\/{$data['cycloneId']}\/positions.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getSingleCycloneForecast",
+            "description": "Get cyclone forecast",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "basinId",
+                    "type": "Select",
+                    "options": [
+                        "NP",
+                        "SP",
+                        "NI",
+                        "SI",
+                        "AL",
+                        "EP"
+                    ],
+                    "info": "Unique id used to identify a basin (NP, SP, NI, SI, AL, EP )",
+                    "required": true
+                },
+                {
+                    "name": "cycloneId",
+                    "type": "Number",
+                    "info": "Numeric id of the tropical cyclone",
+                    "required": true
+                },
+                {
+                    "name": "year",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/tropical\/v1\/storms\/{$data['year']}\/{$data['basinId']}\/{$data['cycloneId']}\/forecasts.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getTridalForecastByLocationKey",
+            "description": "Returns an array of daily tidal forecasts for every tidal station that falls within the area defined by the given locationKey. ",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "days",
+                    "type": "Select",
+                    "options": [
+                        "1day",
+                        "5day",
+                        "10day",
+                        "15day",
+                        "25day",
+                        "45day"
+                    ],
+                    "info": "Number of days to get forecast for",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/tidal\/v1\/forecasts\/{$data['days']}\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAstronomyByLocationKey",
+            "description": "Astronomy By LocationKey and Date Range",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "start",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy\/mm\/dd",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y\/m\/d}"
+                    }
+                },
+                {
+                    "name": "end",
+                    "type": "DatePicker",
+                    "info": "Date in format yyyy\/mm\/dd",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y\/m\/d}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/astronomy\/v1\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey",
+                            "start",
+                            "end"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getImagesByLocationKey",
+            "description": "Radar and Satellite Images by LocationKey",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "resolution",
+                    "type": "Select",
+                    "options": [
+                        "480x480",
+                        "640x480",
+                        "1024x1024"
+                    ],
+                    "info": "Available resolutions: 480x480, 640x480, 1024x1024",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/imagery\/v1\/maps\/radsat\/{$data['resolution']}\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey",
+                            "language"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "listLanguages",
+            "description": "List all Languages",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/translations\/v1\/languages.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "listTranslationGroups",
+            "description": "List of Available Translation Groups",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/translations\/v1\/groups.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getSingelGroupTranslations",
+            "description": "List of Translations for a Specific Group",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "groupId",
+                    "type": "String",
+                    "info": "Unique ID of a translation group",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/translations\/v1\/groups\/{$data['groupId']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "apikey",
+                            "language"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getDeepLinksByLocationKey",
+            "description": "Deep Links by LocationKey",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API key",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "apikey"
+                    }
+                },
+                {
+                    "name": "locationKey",
+                    "type": "String",
+                    "info": "Unique ID used to search for a specific location",
+                    "required": true
+                },
+                {
+                    "name": "language",
+                    "type": "Select",
+                    "options": [
+                        "ar",
+                        "az",
+                        "bn",
+                        "bs",
+                        "bg",
+                        "ca",
+                        "zh",
+                        "hr",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en",
+                        "et",
+                        "fa",
+                        "fil",
+                        "fi",
+                        "fr",
+                        "de",
+                        "el",
+                        "gu",
+                        "he",
+                        "hi",
+                        "hu",
+                        "is",
+                        "id",
+                        "it",
+                        "ja",
+                        "kn",
+                        "kk",
+                        "ko",
+                        "lv",
+                        "lt",
+                        "mk",
+                        "ms",
+                        "mr",
+                        "sr-me",
+                        "nb",
+                        "pl",
+                        "pt",
+                        "pa",
+                        "ro",
+                        "ru",
+                        "sr",
+                        "sk",
+                        "sl",
+                        "es",
+                        "sw",
+                        "sv",
+                        "tl",
+                        "ta",
+                        "te",
+                        "th",
+                        "tr",
+                        "uk",
+                        "ur",
+                        "uz",
+                        "vi"
+                    ],
+                    "info": "String indicating the language in which to return the resource",
+                    "required": false
+                },
+                {
+                    "name": "types",
+                    "type": "List",
+                    "structure": {
+                        "name": "type",
+                        "type": "Select",
+                        "options": [
+                            "Alerts",
+                            "CurrentConditions",
+                            "DailyForecasts",
+                            "ExtendedForecasts",
+                            "Home",
+                            "HourlyForecasts",
+                            "MinuteForecasts",
+                            "MonthForecasts",
+                            "QuarterlyForecastsMorning",
+                            "QuarterlyForecastsAfternoon",
+                            "QuarterlyForecastsEvening",
+                            "QuarterlyForecastsOvernight",
+                            "Radar",
+                            "Satellite",
+                            "Tides"
+                        ],
+                        "info": "Single type"
+                    },
+                    "info": "Array of data types to include in the response. Possible values are: Alerts, CurrentConditions, DailyForecasts, ExtendedForecasts, Home, HourlyForecasts, MinuteForecasts, MonthForecasts, QuarterlyForecastsMorning, QuarterlyForecastsAfternoon, QuarterlyForecastsEvening, QuarterlyForecastsOvernight, Radar, Satellite, Tides.",
+                    "required": false
+                },
+                {
+                    "name": "dayNumber",
+                    "type": "Number",
+                    "info": "Desired start day of the forecast.",
+                    "required": false
+                },
+                {
+                    "name": "hourNumber",
+                    "type": "Number",
+                    "info": "Desired start hour of the forecast (0-23). This number should not exceed 23.",
+                    "required": false
+                },
+                {
+                    "name": "metric",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean value (true or false) that specifies to return the data in either metric (=true) or imperial units ",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/api.accuweather.com\/content\/v1\/links\/{$data['locationKey']}.json",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "language",
+                            "types",
+                            "dayNumber",
+                            "apikey",
+                            "hourNumber",
+                            "metric"
+                        ]
+                    }
+                ],
+                "headers": {
+                    "Accept-Encoding": "gzip,deflate"
+                }
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        }
+    ]
+}
