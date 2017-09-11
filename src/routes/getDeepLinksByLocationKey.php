@@ -19,6 +19,7 @@ $app->post('/api/AccuWeather/getDeepLinksByLocationKey', function ($request, $re
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
+    $data['types'] = implode(',', $data['types']);
 
     
 

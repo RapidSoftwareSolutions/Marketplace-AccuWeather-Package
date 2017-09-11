@@ -4541,7 +4541,10 @@
                         "info": "Single type"
                     },
                     "info": "Array of data types to include in the response. Possible values are: Alerts, CurrentConditions, DailyForecasts, ExtendedForecasts, Home, HourlyForecasts, MinuteForecasts, MonthForecasts, QuarterlyForecastsMorning, QuarterlyForecastsAfternoon, QuarterlyForecastsEvening, QuarterlyForecastsOvernight, Radar, Satellite, Tides.",
-                    "required": false
+                    "required": false,
+                    "vendorSchema":{
+                        "format": "toString:{,}"
+                    }
                 },
                 {
                     "name": "dayNumber",
