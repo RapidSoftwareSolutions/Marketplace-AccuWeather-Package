@@ -17,6 +17,9 @@
             "apiKey"
         ]
     },
+    "steps":[
+      "Contact sales@accuweather.com to receive an apiKey"
+    ],
     "blocks": [
         {
             "name": "getCurrentConditionsByLocationKey",
