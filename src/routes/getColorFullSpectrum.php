@@ -23,12 +23,13 @@ $app->post('/api/AccuWeather/getColorFullSpectrum', function ($request, $respons
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/forecasts/v1/minute/colors.json";
+    $query_str = "http://api.accuweather.com/forecasts/v1/minute/colors.json";
 
     
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["Accept-Encoding"=>"gzip,deflate"];
+     
 
     try {
         $resp = $client->get($query_str, $requestParams);

@@ -23,12 +23,13 @@ $app->post('/api/AccuWeather/getCurrentAirQualityByLocationKey', function ($requ
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/airquality/v1/global/observations/{$data['locationKey']}.json";
+    $query_str = "http://api.accuweather.com/airquality/v1/global/observations/{$data['locationKey']}.json";
 
     
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["Accept-Encoding"=>"gzip,deflate"];
+     
 
     try {
         $resp = $client->get($query_str, $requestParams);

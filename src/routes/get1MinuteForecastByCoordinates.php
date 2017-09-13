@@ -23,12 +23,13 @@ $app->post('/api/AccuWeather/get1MinuteForecastByCoordinates', function ($reques
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/forecasts/v1/minute/1minute.json";
+    $query_str = "http://api.accuweather.com/forecasts/v1/minute/1minute.json";
 
     
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["Accept-Encoding"=>"gzip,deflate"];
+     
 
     try {
         $resp = $client->get($query_str, $requestParams);

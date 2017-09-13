@@ -23,12 +23,13 @@ $app->post('/api/AccuWeather/getSingelGroupTranslations', function ($request, $r
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/translations/v1/groups/{$data['groupId']}.json";
+    $query_str = "http://api.accuweather.com/translations/v1/groups/{$data['groupId']}.json";
 
     
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["Accept-Encoding"=>"gzip,deflate"];
+     
 
     try {
         $resp = $client->get($query_str, $requestParams);

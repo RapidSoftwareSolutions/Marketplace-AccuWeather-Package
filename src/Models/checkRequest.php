@@ -4,13 +4,13 @@ namespace Models;
 require_once('normalizeJson.php');
 
 Class checkRequest {
-    
+
     public function validate($input_data, $reqFields = [], $skipSlashes = false) {
-        
+
         $result = [];
         $json_error = [];
         $error = [];
-       
+
         $data = $input_data->getBody();
 
         if($data=='') {
@@ -35,7 +35,8 @@ Class checkRequest {
         } else {
             if(!empty($reqFields)) {
                 foreach($reqFields as $item) {
-                    if(strlen($post_data['args'][$item]) == 0 || count($post_data['args'][$item]) == 0 ) {                          $error[] = $item;
+                    if(strlen($post_data['args'][$item]) == 0 && count($post_data['args'][$item]) == 0) {
+                        $error[] = $item;
                     }
                 }
             }
@@ -46,13 +47,13 @@ Class checkRequest {
                 $result['contextWrites']['to']['fields'] = $error;
             }
         }
-        
+
         if(empty($result)) {
             $result = $post_data;
         }
 
         return $result;
-        
+
     }
-    
+
 }

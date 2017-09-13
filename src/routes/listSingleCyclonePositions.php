@@ -24,12 +24,13 @@ $app->post('/api/AccuWeather/listSingleCyclonePositions', function ($request, $r
     $data['year'] = \Models\Params::toFormat($data['year'], 'Y'); 
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/tropical/v1/storms/{$data['year']}/{$data['basinId']}/{$data['cycloneId']}/positions.json";
+    $query_str = "http://api.accuweather.com/tropical/v1/storms/{$data['year']}/{$data['basinId']}/{$data['cycloneId']}/positions.json";
 
     
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["Accept-Encoding"=>"gzip,deflate"];
+     
 
     try {
         $resp = $client->get($query_str, $requestParams);

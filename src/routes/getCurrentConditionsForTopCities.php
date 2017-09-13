@@ -23,12 +23,13 @@ $app->post('/api/AccuWeather/getCurrentConditionsForTopCities', function ($reque
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/currentconditions/v1/topcities/{$data['group']}.json";
+    $query_str = "http://api.accuweather.com/currentconditions/v1/topcities/{$data['group']}.json";
 
     
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["Accept-Encoding"=>"gzip,deflate"];
+     
 
     try {
         $resp = $client->get($query_str, $requestParams);

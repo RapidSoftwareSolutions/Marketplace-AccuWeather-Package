@@ -23,12 +23,13 @@ $app->post('/api/AccuWeather/listDailyIndices', function ($request, $response) {
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/indices/v1/daily.json";
+    $query_str = "http://api.accuweather.com/indices/v1/daily.json";
 
     
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["Accept-Encoding"=>"gzip,deflate"];
+     
 
     try {
         $resp = $client->get($query_str, $requestParams);

@@ -19,17 +19,17 @@ $app->post('/api/AccuWeather/getDeepLinksByLocationKey', function ($request, $re
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
-    $data['types'] = implode(',', $data['types']);
 
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/content/v1/links/{$data['locationKey']}.json";
+    $query_str = "http://api.accuweather.com/content/v1/links/{$data['locationKey']}.json";
 
     
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["Accept-Encoding"=>"gzip,deflate"];
+     
 
     try {
         $resp = $client->get($query_str, $requestParams);

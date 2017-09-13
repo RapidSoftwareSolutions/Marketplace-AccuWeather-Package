@@ -21,7 +21,7 @@ class Params
 
         foreach ($requestParams as $key=>$value)
         {
-            if(array_key_exists($key, $optionalParams) && isset($value))
+            if(array_key_exists($key, $optionalParams) && !empty($value))
             {
                 $data[$optionalParams[$key]] = $value;
             }
@@ -64,10 +64,20 @@ class Params
             return $value;
         }
         $time = strtotime($value);
+
+
         if(!$time)
         {
             return $value;
         }
+
+
+        if($format == 'unixTime')
+        {
+            return $time;
+        }
+
+
         $date = new \DateTime($value);
         $result = $date->format($format);
         return $result;

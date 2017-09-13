@@ -25,12 +25,13 @@ $app->post('/api/AccuWeather/getAstronomyByLocationKey', function ($request, $re
     $data['end'] = \Models\Params::toFormat($data['end'], 'Y/m/d'); 
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/astronomy/v1/{$data['locationKey']}.json";
+    $query_str = "http://api.accuweather.com/astronomy/v1/{$data['locationKey']}.json";
 
     
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["Accept-Encoding"=>"gzip,deflate"];
+     
 
     try {
         $resp = $client->get($query_str, $requestParams);

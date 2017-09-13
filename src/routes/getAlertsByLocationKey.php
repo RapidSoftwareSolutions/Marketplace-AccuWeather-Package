@@ -23,12 +23,13 @@ $app->post('/api/AccuWeather/getAlertsByLocationKey', function ($request, $respo
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/alerts/v1/{$data['locationKey']}.json";
+    $query_str = "http://api.accuweather.com/alerts/v1/{$data['locationKey']}.json";
 
     
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["Accept-Encoding"=>"gzip,deflate"];
+     
 
     try {
         $resp = $client->get($query_str, $requestParams);

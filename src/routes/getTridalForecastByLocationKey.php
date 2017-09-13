@@ -23,12 +23,13 @@ $app->post('/api/AccuWeather/getTridalForecastByLocationKey', function ($request
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/tidal/v1/forecasts/{$data['days']}/{$data['locationKey']}.json";
+    $query_str = "http://api.accuweather.com/tidal/v1/forecasts/{$data['days']}/{$data['locationKey']}.json";
 
     
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["Accept-Encoding"=>"gzip,deflate"];
+     
 
     try {
         $resp = $client->get($query_str, $requestParams);

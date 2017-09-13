@@ -1,10 +1,10 @@
 <?php
 
-$app->post('/api/AccuWeather/getForecastByLocationKey', function ($request, $response) {
+$app->post('/api/AccuWeather/getHoursForecastByLocationKey', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','locationKey','days']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','locationKey','hours']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,7 +12,7 @@ $app->post('/api/AccuWeather/getForecastByLocationKey', function ($request, $res
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apikey','locationKey'=>'locationKey','days'=>'days'];
+    $requiredParams = ['apiKey'=>'apikey','locationKey'=>'locationKey','hours'=>'hours'];
     $optionalParams = ['language'=>'language','details'=>'details','metric'=>'metric'];
     $bodyParams = [
        'query' => ['language','details','metric','group','apikey']
@@ -23,12 +23,13 @@ $app->post('/api/AccuWeather/getForecastByLocationKey', function ($request, $res
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/forecasts/v1/daily/{$data['days']}/{$data['locationKey']}.json";
+    $query_str = "http://api.accuweather.com/forecasts/v1/hourly/{$data['hours']}/{$data['locationKey']}.json";
 
     
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["Accept-Encoding"=>"gzip,deflate"];
+     
 
     try {
         $resp = $client->get($query_str, $requestParams);
