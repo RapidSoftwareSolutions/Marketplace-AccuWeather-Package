@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/getTridalForecastByLocationKey', function ($request
     
 
     $client = $this->httpClient;
-    $query_str = "http://api.accuweather.com/tidal/v1/forecasts/{$data['days']}/{$data['locationKey']}.json";
+    $query_str = "http://dataservice.accuweather.com/tidal/v1/forecasts/{$data['days']}/{$data['locationKey']}.json";
 
     
 

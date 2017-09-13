@@ -24,7 +24,7 @@ $app->post('/api/AccuWeather/getSingleCycloneForecast', function ($request, $res
     $data['year'] = \Models\Params::toFormat($data['year'], 'Y'); 
 
     $client = $this->httpClient;
-    $query_str = "http://api.accuweather.com/tropical/v1/storms/{$data['year']}/{$data['basinId']}/{$data['cycloneId']}/forecasts.json";
+    $query_str = "http://dataservice.accuweather.com/tropical/v1/storms/{$data['year']}/{$data['basinId']}/{$data['cycloneId']}/forecasts.json";
 
     
 

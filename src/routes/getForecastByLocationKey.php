@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/getForecastByLocationKey', function ($request, $res
     
 
     $client = $this->httpClient;
-    $query_str = "http://api.accuweather.com/forecasts/v1/daily/{$data['days']}/{$data['locationKey']}.json";
+    $query_str = "http://dataservice.accuweather.com/forecasts/v1/daily/{$data['days']}/{$data['locationKey']}.json";
 
     
 

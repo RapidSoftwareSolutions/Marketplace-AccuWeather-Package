@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/getImagesByLocationKey', function ($request, $respo
     
 
     $client = $this->httpClient;
-    $query_str = "http://api.accuweather.com/imagery/v1/maps/radsat/{$data['resolution']}/{$data['locationKey']}.json";
+    $query_str = "http://dataservice.accuweather.com/imagery/v1/maps/radsat/{$data['resolution']}/{$data['locationKey']}.json";
 
     
 

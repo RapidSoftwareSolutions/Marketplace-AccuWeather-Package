@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/get24HoursConditionsByLocationKey', function ($requ
     
 
     $client = $this->httpClient;
-    $query_str = "http://api.accuweather.com/currentconditions/v1/{$data['locationKey']}/historical/24.json";
+    $query_str = "http://dataservice.accuweather.com/currentconditions/v1/{$data['locationKey']}/historical/24.json";
 
     
 

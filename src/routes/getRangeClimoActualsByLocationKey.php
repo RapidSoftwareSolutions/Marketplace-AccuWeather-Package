@@ -25,7 +25,7 @@ $app->post('/api/AccuWeather/getRangeClimoActualsByLocationKey', function ($requ
     $data['end'] = \Models\Params::toFormat($data['end'], 'Y/m/d'); 
 
     $client = $this->httpClient;
-    $query_str = "http://api.accuweather.com/climo/v1/actuals/{$data['locationKey']}.json";
+    $query_str = "http://dataservice.accuweather.com/climo/v1/actuals/{$data['locationKey']}.json";
 
     
 

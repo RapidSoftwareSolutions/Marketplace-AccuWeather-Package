@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/getIndiceByGroupId', function ($request, $response)
     
 
     $client = $this->httpClient;
-    $query_str = "http://api.accuweather.com/indices/v1/daily/groups/{$data['groupId']}.json";
+    $query_str = "http://dataservice.accuweather.com/indices/v1/daily/groups/{$data['groupId']}.json";
 
     
 

@@ -24,7 +24,7 @@ $app->post('/api/AccuWeather/getDeepLinksByLocationKey', function ($request, $re
     
 
     $client = $this->httpClient;
-    $query_str = "http://api.accuweather.com/content/v1/links/{$data['locationKey']}.json";
+    $query_str = "http://dataservice.accuweather.com/content/v1/links/{$data['locationKey']}.json";
 
     
 

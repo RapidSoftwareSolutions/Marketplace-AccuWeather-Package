@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/listTranslationGroups', function ($request, $respon
     
 
     $client = $this->httpClient;
-    $query_str = "http://api.accuweather.com/translations/v1/groups.json";
+    $query_str = "http://dataservice.accuweather.com/translations/v1/groups.json";
 
     
 
