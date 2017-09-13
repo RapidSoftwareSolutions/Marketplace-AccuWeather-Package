@@ -17,7 +17,7 @@
             "apiKey"
         ]
     },
-    "steps":[
+    "steps": [
         "Contact sales@accuweather.com to receive an API key."
     ],
     "blocks": [
@@ -629,8 +629,8 @@
             ]
         },
         {
-            "name": "get1MinuteForecastByCoordinates",
-            "description": "MinuteCast\u2122 Premium 1-Minute Forecasts By Latitude, Longitude",
+            "name": "getMinutesForecastByCoordinates",
+            "description": "MinuteCast\u2122 Premium Forecasts By Latitude, Longitude",
             "args": [
                 {
                     "name": "apiKey",
@@ -651,65 +651,15 @@
                     }
                 },
                 {
-                    "name": "details",
+                    "name": "minutes",
                     "type": "Select",
                     "options": [
-                        "true",
-                        "false"
+                        "1minute",
+                        "5minute",
+                        "15minute"
                     ],
-                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
-                    "required": false
-                }
-            ],
-            "vendorRequest": {
-                "url": "http:\/\/dataservice.accuweather.com\/forecasts\/v1\/minute\/1minute.json",
-                "method": "get",
-                "requestParameters": [
-                    {
-                        "type": "query",
-                        "parameters": [
-                            "q",
-                            "apikey",
-                            "details"
-                        ]
-                    }
-                ],
-                "headers": {
-                    "Accept-Encoding": "gzip,deflate"
-                }
-            },
-            "callbacks": [
-                {
-                    "name": "error",
-                    "info": "Error"
-                },
-                {
-                    "name": "success",
-                    "info": "Success"
-                }
-            ]
-        },
-        {
-            "name": "get5MinutesForecastByCoordinates",
-            "description": "MinuteCast\u2122 Premium 5-Minute Forecasts By Latitude, Longitude",
-            "args": [
-                {
-                    "name": "apiKey",
-                    "type": "credentials",
-                    "info": "Your API key",
-                    "required": true,
-                    "vendorSchema": {
-                        "name": "apikey"
-                    }
-                },
-                {
-                    "name": "coordinates",
-                    "type": "Map",
-                    "info": "Coordinates for the forecast",
-                    "required": true,
-                    "vendorSchema": {
-                        "name": "q"
-                    }
+                    "info": "Number of minutes to get forecast for",
+                    "required": true
                 },
                 {
                     "name": "details",
@@ -723,68 +673,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/dataservice.accuweather.com\/forecasts\/v1\/minute\/5minute.json",
-                "method": "get",
-                "requestParameters": [
-                    {
-                        "type": "query",
-                        "parameters": [
-                            "q",
-                            "apikey",
-                            "details"
-                        ]
-                    }
-                ],
-                "headers": {
-                    "Accept-Encoding": "gzip,deflate"
-                }
-            },
-            "callbacks": [
-                {
-                    "name": "error",
-                    "info": "Error"
-                },
-                {
-                    "name": "success",
-                    "info": "Success"
-                }
-            ]
-        },
-        {
-            "name": "get15MinutesForecastByCoordinates",
-            "description": "MinuteCast\u2122 Premium 15-Minute Forecasts By Latitude, Longitude",
-            "args": [
-                {
-                    "name": "apiKey",
-                    "type": "credentials",
-                    "info": "Your API key",
-                    "required": true,
-                    "vendorSchema": {
-                        "name": "apikey"
-                    }
-                },
-                {
-                    "name": "coordinates",
-                    "type": "Map",
-                    "info": "Coordinates for the forecast",
-                    "required": true,
-                    "vendorSchema": {
-                        "name": "q"
-                    }
-                },
-                {
-                    "name": "details",
-                    "type": "Select",
-                    "options": [
-                        "true",
-                        "false"
-                    ],
-                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
-                    "required": false
-                }
-            ],
-            "vendorRequest": {
-                "url": "http:\/\/dataservice.accuweather.com\/forecasts\/v1\/minute\/15minute.json",
+                "url": "http:\/\/dataservice.accuweather.com\/forecasts\/v1\/minute\/{$dara['minutes']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -852,276 +741,6 @@
             ]
         },
         {
-            "name": "get1HourForecastByLocationKey",
-            "description": "1 Hour of Hourly Forecasts By Location Key",
-            "args": [
-                {
-                    "name": "apiKey",
-                    "type": "credentials",
-                    "info": "Your API key",
-                    "required": true,
-                    "vendorSchema": {
-                        "name": "apikey"
-                    }
-                },
-                {
-                    "name": "locationKey",
-                    "type": "String",
-                    "info": "Unique ID used to search for a specific location",
-                    "required": true
-                },
-                {
-                    "name": "language",
-                    "type": "Select",
-                    "options": [
-                        "ar",
-                        "az",
-                        "bn",
-                        "bs",
-                        "bg",
-                        "ca",
-                        "zh",
-                        "hr",
-                        "cs",
-                        "da",
-                        "nl",
-                        "en",
-                        "et",
-                        "fa",
-                        "fil",
-                        "fi",
-                        "fr",
-                        "de",
-                        "el",
-                        "gu",
-                        "he",
-                        "hi",
-                        "hu",
-                        "is",
-                        "id",
-                        "it",
-                        "ja",
-                        "kn",
-                        "kk",
-                        "ko",
-                        "lv",
-                        "lt",
-                        "mk",
-                        "ms",
-                        "mr",
-                        "sr-me",
-                        "nb",
-                        "pl",
-                        "pt",
-                        "pa",
-                        "ro",
-                        "ru",
-                        "sr",
-                        "sk",
-                        "sl",
-                        "es",
-                        "sw",
-                        "sv",
-                        "tl",
-                        "ta",
-                        "te",
-                        "th",
-                        "tr",
-                        "uk",
-                        "ur",
-                        "uz",
-                        "vi"
-                    ],
-                    "info": "String indicating the language in which to return the resource",
-                    "required": false
-                },
-                {
-                    "name": "details",
-                    "type": "Select",
-                    "options": [
-                        "true",
-                        "false"
-                    ],
-                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
-                    "required": false
-                },
-                {
-                    "name": "metric",
-                    "type": "Select",
-                    "options": [
-                        "true",
-                        "false"
-                    ],
-                    "info": "Boolean value (true or false) that specifies to return the data in either metric (=true) or imperial units ",
-                    "required": false
-                }
-            ],
-            "vendorRequest": {
-                "url": "http:\/\/dataservice.accuweather.com\/forecasts\/v1\/hourly\/1hour\/{$data['locationKey']}.json",
-                "method": "get",
-                "requestParameters": [
-                    {
-                        "type": "query",
-                        "parameters": [
-                            "language",
-                            "details",
-                            "metric",
-                            "group",
-                            "apikey"
-                        ]
-                    }
-                ],
-                "headers": {
-                    "Accept-Encoding": "gzip,deflate"
-                }
-            },
-            "callbacks": [
-                {
-                    "name": "error",
-                    "info": "Error"
-                },
-                {
-                    "name": "success",
-                    "info": "Success"
-                }
-            ]
-        },
-        {
-            "name": "get12HoursForecastByLocationKey",
-            "description": "12 Hours of Hourly Forecasts By Location Key",
-            "args": [
-                {
-                    "name": "apiKey",
-                    "type": "credentials",
-                    "info": "Your API key",
-                    "required": true,
-                    "vendorSchema": {
-                        "name": "apikey"
-                    }
-                },
-                {
-                    "name": "locationKey",
-                    "type": "String",
-                    "info": "Unique ID used to search for a specific location",
-                    "required": true
-                },
-                {
-                    "name": "language",
-                    "type": "Select",
-                    "options": [
-                        "ar",
-                        "az",
-                        "bn",
-                        "bs",
-                        "bg",
-                        "ca",
-                        "zh",
-                        "hr",
-                        "cs",
-                        "da",
-                        "nl",
-                        "en",
-                        "et",
-                        "fa",
-                        "fil",
-                        "fi",
-                        "fr",
-                        "de",
-                        "el",
-                        "gu",
-                        "he",
-                        "hi",
-                        "hu",
-                        "is",
-                        "id",
-                        "it",
-                        "ja",
-                        "kn",
-                        "kk",
-                        "ko",
-                        "lv",
-                        "lt",
-                        "mk",
-                        "ms",
-                        "mr",
-                        "sr-me",
-                        "nb",
-                        "pl",
-                        "pt",
-                        "pa",
-                        "ro",
-                        "ru",
-                        "sr",
-                        "sk",
-                        "sl",
-                        "es",
-                        "sw",
-                        "sv",
-                        "tl",
-                        "ta",
-                        "te",
-                        "th",
-                        "tr",
-                        "uk",
-                        "ur",
-                        "uz",
-                        "vi"
-                    ],
-                    "info": "String indicating the language in which to return the resource",
-                    "required": false
-                },
-                {
-                    "name": "details",
-                    "type": "Select",
-                    "options": [
-                        "true",
-                        "false"
-                    ],
-                    "info": "Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object",
-                    "required": false
-                },
-                {
-                    "name": "metric",
-                    "type": "Select",
-                    "options": [
-                        "true",
-                        "false"
-                    ],
-                    "info": "Boolean value (true or false) that specifies to return the data in either metric (=true) or imperial units ",
-                    "required": false
-                }
-            ],
-            "vendorRequest": {
-                "url": "http:\/\/dataservice.accuweather.com\/forecasts\/v1\/hourly\/12hour\/{$data['locationKey']}.json",
-                "method": "get",
-                "requestParameters": [
-                    {
-                        "type": "query",
-                        "parameters": [
-                            "language",
-                            "details",
-                            "metric",
-                            "group",
-                            "apikey"
-                        ]
-                    }
-                ],
-                "headers": {
-                    "Accept-Encoding": "gzip,deflate"
-                }
-            },
-            "callbacks": [
-                {
-                    "name": "error",
-                    "info": "Error"
-                },
-                {
-                    "name": "success",
-                    "info": "Success"
-                }
-            ]
-        },
-        {
             "name": "getHoursForecastByLocationKey",
             "description": "Hourly Forecasts By Location Key",
             "args": [
@@ -1144,6 +763,8 @@
                     "name": "hours",
                     "type": "Select",
                     "options": [
+                        "1hour",
+                        "12hour",
                         "24hour",
                         "72hour",
                         "120hour",
