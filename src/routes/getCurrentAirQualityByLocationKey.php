@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/getCurrentAirQualityByLocationKey', function ($requ
     
 
     $client = $this->httpClient;
-    $query_str = "http://api.accuweather.com/airquality/v1/global/observations/{$data['locationKey']}.json";
+    $query_str = "http://dataservice.accuweather.com/airquality/v1/global/observations/{$data['locationKey']}.json";
 
     
 

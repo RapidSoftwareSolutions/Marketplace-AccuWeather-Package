@@ -17,6 +17,9 @@
             "apiKey"
         ]
     },
+    "steps":[
+        "Contact sales@accuweather.com to receive an API key."
+    ],
     "blocks": [
         {
             "name": "getCurrentConditionsByLocationKey",
@@ -130,7 +133,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/currentconditions\/v1\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/currentconditions\/v1\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -271,7 +274,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/currentconditions\/v1\/{$data['locationKey']}\/historical.json",
+                "url": "http:\/\/dataservice.accuweather.com\/currentconditions\/v1\/{$data['locationKey']}\/historical.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -412,7 +415,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/currentconditions\/v1\/{$data['locationKey']}\/historical\/24.json",
+                "url": "http:\/\/dataservice.accuweather.com\/currentconditions\/v1\/{$data['locationKey']}\/historical\/24.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -547,7 +550,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/currentconditions\/v1\/topcities\/{$data['group']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/currentconditions\/v1\/topcities\/{$data['group']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -599,7 +602,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/minute.json",
+                "url": "http:\/\/dataservice.accuweather.com\/forecasts\/v1\/minute.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -659,7 +662,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/minute\/1minute.json",
+                "url": "http:\/\/dataservice.accuweather.com\/forecasts\/v1\/minute\/1minute.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -720,7 +723,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/minute\/5minute.json",
+                "url": "http:\/\/dataservice.accuweather.com\/forecasts\/v1\/minute\/5minute.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -781,7 +784,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/minute\/15minute.json",
+                "url": "http:\/\/dataservice.accuweather.com\/forecasts\/v1\/minute\/15minute.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -823,7 +826,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/minute\/colors.json",
+                "url": "http:\/\/dataservice.accuweather.com\/forecasts\/v1\/minute\/colors.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -954,7 +957,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/hourly\/1hour\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/forecasts\/v1\/hourly\/1hour\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -1089,7 +1092,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/hourly\/12hour\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/forecasts\/v1\/hourly\/12hour\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -1236,7 +1239,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/hourly\/{$data['hours']}\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/forecasts\/v1\/hourly\/{$data['hours']}\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -1385,7 +1388,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/forecasts\/v1\/daily\/{$data['days']}\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/forecasts\/v1\/daily\/{$data['days']}\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -1530,7 +1533,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/localweather\/v1\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/localweather\/v1\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -1655,7 +1658,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/alerts\/v1\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/alerts\/v1\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -1703,7 +1706,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/airquality\/v1\/global\/observations\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/airquality\/v1\/global\/observations\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -1749,7 +1752,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/airquality\/v1\/global\/observations\/1day\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/airquality\/v1\/global\/observations\/1day\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -1854,7 +1857,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/indices\/v1\/daily.json",
+                "url": "http:\/\/dataservice.accuweather.com\/indices\/v1\/daily.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -1966,7 +1969,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/indices\/v1\/daily\/{$data['indexId']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/indices\/v1\/daily\/{$data['indexId']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -2072,7 +2075,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/indices\/v1\/daily\/groups.json",
+                "url": "http:\/\/dataservice.accuweather.com\/indices\/v1\/daily\/groups.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -2184,7 +2187,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/indices\/v1\/daily\/groups\/{$data['groupId']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/indices\/v1\/daily\/groups\/{$data['groupId']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -2324,7 +2327,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/indices\/v1\/daily\/{$data['days']}\/{$data['locationKey']}\/{$data['indexId']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/indices\/v1\/daily\/{$data['days']}\/{$data['locationKey']}\/{$data['indexId']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -2465,7 +2468,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/indices\/v1\/daily\/{$data['days']}\/{$data['locationKey']}\/groups\/{$data['groupId']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/indices\/v1\/daily\/{$data['days']}\/{$data['locationKey']}\/groups\/{$data['groupId']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -2591,7 +2594,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/alarms\/v1\/{$data['days']}\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/alarms\/v1\/{$data['days']}\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -2647,7 +2650,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/climo\/v1\/actuals\/{$data['date']}\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/climo\/v1\/actuals\/{$data['date']}\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -2702,7 +2705,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/climo\/v1\/actuals\/{$data['date']}\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/climo\/v1\/actuals\/{$data['date']}\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -2766,7 +2769,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/climo\/v1\/actuals\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/climo\/v1\/actuals\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -2823,7 +2826,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/climo\/v1\/records\/{$data['date']}\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/climo\/v1\/records\/{$data['date']}\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -2878,7 +2881,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/climo\/v1\/records\/{$data['date']}\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/climo\/v1\/records\/{$data['date']}\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -2942,7 +2945,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/climo\/v1\/records\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/climo\/v1\/records\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -2999,7 +3002,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/climo\/v1\/normals\/{$data['date']}\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/climo\/v1\/normals\/{$data['date']}\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -3054,7 +3057,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/climo\/v1\/normals\/{$data['date']}\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/climo\/v1\/normals\/{$data['date']}\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -3118,7 +3121,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/climo\/v1\/normals\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/climo\/v1\/normals\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -3175,7 +3178,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/climo\/v1\/summary\/{$data['date']}\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/climo\/v1\/summary\/{$data['date']}\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -3229,7 +3232,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/tropical\/v1\/storms\/active.json",
+                "url": "http:\/\/dataservice.accuweather.com\/tropical\/v1\/storms\/active.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -3299,7 +3302,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/tropical\/v1\/storms\/{$data['year']}\/{$data['basinId']}\/{$data['cycloneId']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/tropical\/v1\/storms\/{$data['year']}\/{$data['basinId']}\/{$data['cycloneId']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -3368,7 +3371,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/tropical\/v1\/storms\/{$data['year']}\/{$data['basinId']}\/{$data['cycloneId']}\/positions\/current.json",
+                "url": "http:\/\/dataservice.accuweather.com\/tropical\/v1\/storms\/{$data['year']}\/{$data['basinId']}\/{$data['cycloneId']}\/positions\/current.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -3437,7 +3440,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/tropical\/v1\/storms\/{$data['year']}\/{$data['basinId']}\/{$data['cycloneId']}\/positions.json",
+                "url": "http:\/\/dataservice.accuweather.com\/tropical\/v1\/storms\/{$data['year']}\/{$data['basinId']}\/{$data['cycloneId']}\/positions.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -3506,7 +3509,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/tropical\/v1\/storms\/{$data['year']}\/{$data['basinId']}\/{$data['cycloneId']}\/forecasts.json",
+                "url": "http:\/\/dataservice.accuweather.com\/tropical\/v1\/storms\/{$data['year']}\/{$data['basinId']}\/{$data['cycloneId']}\/forecasts.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -3631,7 +3634,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/tidal\/v1\/forecasts\/{$data['days']}\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/tidal\/v1\/forecasts\/{$data['days']}\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -3696,7 +3699,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/astronomy\/v1\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/astronomy\/v1\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -3820,7 +3823,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/imagery\/v1\/maps\/radsat\/{$data['resolution']}\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/imagery\/v1\/maps\/radsat\/{$data['resolution']}\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -3861,7 +3864,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/translations\/v1\/languages.json",
+                "url": "http:\/\/dataservice.accuweather.com\/translations\/v1\/languages.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -3901,7 +3904,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/translations\/v1\/groups.json",
+                "url": "http:\/\/dataservice.accuweather.com\/translations\/v1\/groups.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -4012,7 +4015,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/translations\/v1\/groups\/{$data['groupId']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/translations\/v1\/groups\/{$data['groupId']}.json",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -4174,7 +4177,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/api.accuweather.com\/content\/v1\/links\/{$data['locationKey']}.json",
+                "url": "http:\/\/dataservice.accuweather.com\/content\/v1\/links\/{$data['locationKey']}.json",
                 "method": "get",
                 "requestParameters": [
                     {

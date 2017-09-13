@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/getLocationIndicesByGroupId', function ($request, $
     
 
     $client = $this->httpClient;
-    $query_str = "http://api.accuweather.com/indices/v1/daily/{$data['days']}/{$data['locationKey']}/groups/{$data['groupId']}.json";
+    $query_str = "http://dataservice.accuweather.com/indices/v1/daily/{$data['days']}/{$data['locationKey']}/groups/{$data['groupId']}.json";
 
     
 

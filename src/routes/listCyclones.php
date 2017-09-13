@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/listCyclones', function ($request, $response) {
     
 
     $client = $this->httpClient;
-    $query_str = "http://api.accuweather.com/tropical/v1/storms/active.json";
+    $query_str = "http://dataservice.accuweather.com/tropical/v1/storms/active.json";
 
     
 

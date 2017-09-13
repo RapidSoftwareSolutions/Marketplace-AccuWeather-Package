@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/getMinuteForecastByCoordinates', function ($request
     
 
     $client = $this->httpClient;
-    $query_str = "http://api.accuweather.com/forecasts/v1/minute.json";
+    $query_str = "http://dataservice.accuweather.com/forecasts/v1/minute.json";
 
     
 
