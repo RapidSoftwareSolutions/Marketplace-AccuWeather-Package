@@ -33,12 +33,11 @@ $routes = [
     'listDailyIndices',
     'listDailyIndicesGroups',
     'getIndicesByGroupId',
-    'getSingleIndice',
+    'getSingleGroupTranslations',
     'getWeatherAlarmByLocationKey',
     'getAlertsByLocationKey',
     'getImagesByLocationKey',
     'getSingleCyclone',
-    'listCyclonesByYear',
     'getSingleActiveCyclone',
     'listActiveCyclonsByBasin',
     'listActiveCyclons',
@@ -46,8 +45,8 @@ $routes = [
     'listSingleCyclonePositions',
     'getSingleCyclonePosition',
     'listLanguages',
-    'listTranslationGroups',
-    'getSingelGroupTranslations'
+    'listCyclonesByYear',
+    'listTranslationGroups'
 ];
 foreach($routes as $file) {
     require __DIR__ . '/../src/routes/'.$file.'.php';

@@ -1,6 +1,6 @@
 <?php
 
-$app->post('/api/AccuWeather/getSingelGroupTranslations', function ($request, $response) {
+$app->post('/api/AccuWeather/getSingleGroupTranslations', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;

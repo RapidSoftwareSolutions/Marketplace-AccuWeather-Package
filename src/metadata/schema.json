@@ -1,7 +1,7 @@
 {
     "package": "AccuWeather",
     "tagline": "AccuWeather API",
-    "description": "AccuWeather provides hourly and Minute by Minute forecasts with Superior Accuracy for any longitude\/latitude on Earth, with customized content and engaging video presentations available on smart phones, tablets, free wired and mobile Internet sites, connected TVs, and Internet appliances, as well as via radio, television, and newspapers.",
+    "description": "AccuWeather provides hourly and Minute by Minute\u2122 forecasts with Superior Accuracy\u2122 for any longitude\/latitude on Earth, with customized content and engaging video presentations available on smart phones, tablets, free wired and mobile Internet sites, connected TVs, and Internet appliances, as well as via radio, television, and newspapers.",
     "image": "https:\/\/logo.clearbit.com\/accuweather.com",
     "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-AccuWeather-Package",
     "keywords": [
@@ -20,7 +20,7 @@
     "steps":[
         "Go to https://developer.accuweather.com",
         "Register or log in",
-        "Create new apiKey at this page - https://developer.accuweather.com/user/me/apps"
+        "Create new application at https://developer.accuweather.com/user/me/apps"
     ],
     "blocks": [
         {
@@ -5251,7 +5251,7 @@
             ]
         },
         {
-            "name": "getSingelGroupTranslations",
+            "name": "getSingleGroupTranslations",
             "description": "List of Translations for a Specific Group",
             "args": [
                 {
