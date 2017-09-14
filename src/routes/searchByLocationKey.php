@@ -1,6 +1,6 @@
 <?php
 
-$app->post('/api/AccuWeather/get6HoursConditionsByLocationKey', function ($request, $response) {
+$app->post('/api/AccuWeather/searchByLocationKey', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/get6HoursConditionsByLocationKey', function ($reque
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/currentconditions/v1/{$data['locationKey']}/historical.json";
+    $query_str = "http://dataservice.accuweather.com/locations/v1/{$data['locationKey']}.json";
 
     
 

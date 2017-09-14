@@ -1,10 +1,10 @@
 <?php
 
-$app->post('/api/AccuWeather/getMinuteForecastByCoordinates', function ($request, $response) {
+$app->post('/api/AccuWeather/getSingleActiveCyclone', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','coordinates']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','basinId','cycloneId']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,10 +12,10 @@ $app->post('/api/AccuWeather/getMinuteForecastByCoordinates', function ($request
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apikey','coordinates'=>'q'];
+    $requiredParams = ['apiKey'=>'apikey','basinId'=>'basinId','cycloneId'=>'cycloneId'];
     $optionalParams = [];
     $bodyParams = [
-       'query' => ['q','apikey']
+       'query' => ['apikey']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/getMinuteForecastByCoordinates', function ($request
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/forecasts/v1/minute.json";
+    $query_str = "http://dataservice.accuweather.com/tropical/v1/storms/active/{$data['basinId']}/{$data['cycloneId']}.json";
 
     
 

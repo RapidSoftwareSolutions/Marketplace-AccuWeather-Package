@@ -1,10 +1,10 @@
 <?php
 
-$app->post('/api/AccuWeather/getIndiceByGroupId', function ($request, $response) {
+$app->post('/api/AccuWeather/searchPostalCodeWithCountryCode', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','groupId']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','countryCode','query']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,10 +12,10 @@ $app->post('/api/AccuWeather/getIndiceByGroupId', function ($request, $response)
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apikey','groupId'=>'groupId'];
-    $optionalParams = ['language'=>'language'];
+    $requiredParams = ['apiKey'=>'apikey','countryCode'=>'countryCode','query'=>'q'];
+    $optionalParams = ['language'=>'language','details'=>'details'];
     $bodyParams = [
-       'query' => ['language','apikey']
+       'query' => ['q','language','details','apikey']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/getIndiceByGroupId', function ($request, $response)
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/indices/v1/daily/groups/{$data['groupId']}.json";
+    $query_str = "http://dataservice.accuweather.com/locations/v1/postalcodes/{$data['countryCode']}/search.json";
 
     
 

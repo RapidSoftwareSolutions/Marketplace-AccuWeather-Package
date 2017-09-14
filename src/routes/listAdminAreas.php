@@ -1,10 +1,10 @@
 <?php
 
-$app->post('/api/AccuWeather/getIndiceByIndex', function ($request, $response) {
+$app->post('/api/AccuWeather/listAdminAreas', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','indexId']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','countryCode']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,10 +12,10 @@ $app->post('/api/AccuWeather/getIndiceByIndex', function ($request, $response) {
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apikey','indexId'=>'indexId'];
-    $optionalParams = ['language'=>'language'];
+    $requiredParams = ['apiKey'=>'apikey','countryCode'=>'countryCode'];
+    $optionalParams = ['language'=>'language','offset'=>'offset'];
     $bodyParams = [
-       'query' => ['language','apikey']
+       'query' => ['language','offset','apikey']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/getIndiceByIndex', function ($request, $response) {
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/indices/v1/daily/{$data['indexId']}.json";
+    $query_str = "http://dataservice.accuweather.com/locations/v1/adminareas/{$data['countryCode']}.json";
 
     
 

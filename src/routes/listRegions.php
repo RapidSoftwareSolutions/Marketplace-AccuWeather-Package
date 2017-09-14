@@ -1,10 +1,10 @@
 <?php
 
-$app->post('/api/AccuWeather/getLocalWeatherByLocationKey', function ($request, $response) {
+$app->post('/api/AccuWeather/listRegions', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','locationKey']);
+    $validateRes = $checkRequest->validate($request, ['apiKey']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,10 +12,10 @@ $app->post('/api/AccuWeather/getLocalWeatherByLocationKey', function ($request, 
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apikey','locationKey'=>'locationKey'];
-    $optionalParams = ['language'=>'language','details'=>'details','getPhotos'=>'getPhotos','metric'=>'metric'];
+    $requiredParams = ['apiKey'=>'apikey'];
+    $optionalParams = ['language'=>'language'];
     $bodyParams = [
-       'query' => ['language','details','getPhotos','metric','apikey']
+       'query' => ['language','apikey']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/getLocalWeatherByLocationKey', function ($request, 
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/localweather/v1/{$data['locationKey']}.json";
+    $query_str = "http://dataservice.accuweather.com/locations/v1/regions.json";
 
     
 

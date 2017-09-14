@@ -4,7 +4,7 @@ $app->post('/api/AccuWeather/getCurrentConditionsForTopCities', function ($reque
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','group']);
+    $validateRes = $checkRequest->validate($request, ['apiKey']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,10 +12,10 @@ $app->post('/api/AccuWeather/getCurrentConditionsForTopCities', function ($reque
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apikey','group'=>'group'];
-    $optionalParams = ['language'=>'language','details'=>'details','getPhotos'=>'getPhotos'];
+    $requiredParams = ['apiKey'=>'apikey'];
+    $optionalParams = ['language'=>'language','details'=>'details'];
     $bodyParams = [
-       'query' => ['language','details','getPhotos','apikey']
+       'query' => ['language','details','apikey']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);

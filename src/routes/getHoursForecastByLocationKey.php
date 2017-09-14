@@ -15,7 +15,7 @@ $app->post('/api/AccuWeather/getHoursForecastByLocationKey', function ($request,
     $requiredParams = ['apiKey'=>'apikey','locationKey'=>'locationKey','hours'=>'hours'];
     $optionalParams = ['language'=>'language','details'=>'details','metric'=>'metric'];
     $bodyParams = [
-       'query' => ['language','details','metric','group','apikey']
+       'query' => ['language','details','metric','apikey']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);

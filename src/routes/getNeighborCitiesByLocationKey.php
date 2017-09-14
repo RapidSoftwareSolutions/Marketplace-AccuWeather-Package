@@ -1,10 +1,10 @@
 <?php
 
-$app->post('/api/AccuWeather/listCyclones', function ($request, $response) {
+$app->post('/api/AccuWeather/getNeighborCitiesByLocationKey', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','locationKey']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,10 +12,10 @@ $app->post('/api/AccuWeather/listCyclones', function ($request, $response) {
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apikey'];
-    $optionalParams = ['basinId'=>'basinId'];
+    $requiredParams = ['apiKey'=>'apikey','locationKey'=>'locationKey'];
+    $optionalParams = ['language'=>'language','details'=>'details'];
     $bodyParams = [
-       'query' => ['apikey','basinId']
+       'query' => ['language','details','apikey']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/listCyclones', function ($request, $response) {
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/tropical/v1/storms/active.json";
+    $query_str = "http://dataservice.accuweather.com/locations/v1/cities/neighbors/{$data['locationKey']}.json";
 
     
 

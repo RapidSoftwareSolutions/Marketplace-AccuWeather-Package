@@ -6,7 +6,9 @@ AccuWeather provides hourly and Minute by Minute™ forecasts with Superior Accu
 * Credentials: apiKey
 
 ## How to get credentials: 
-0. Contact sales@accuweather.com to receive an API key.
+0. Go to [AccuWeather](https://developer.accuweather.com) 
+1. Register or log in
+2. Create new application at [Application page](https://developer.accuweather.com/user/me/apps)
 
 
 

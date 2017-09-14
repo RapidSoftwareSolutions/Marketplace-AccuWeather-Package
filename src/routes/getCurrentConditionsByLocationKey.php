@@ -13,9 +13,9 @@ $app->post('/api/AccuWeather/getCurrentConditionsByLocationKey', function ($requ
     }
 
     $requiredParams = ['apiKey'=>'apikey','locationKey'=>'locationKey'];
-    $optionalParams = ['language'=>'language','details'=>'details','getPhotos'=>'getPhotos','group'=>'group'];
+    $optionalParams = ['language'=>'language','details'=>'details'];
     $bodyParams = [
-       'query' => ['language','details','getPhotos','group','apikey']
+       'query' => ['language','details','apikey']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);

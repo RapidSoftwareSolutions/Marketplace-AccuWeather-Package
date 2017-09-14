@@ -1,10 +1,10 @@
 <?php
 
-$app->post('/api/AccuWeather/get6HoursConditionsByLocationKey', function ($request, $response) {
+$app->post('/api/AccuWeather/getLocationIndicesByLocationKey', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','locationKey']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','locationKey','days']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,7 +12,7 @@ $app->post('/api/AccuWeather/get6HoursConditionsByLocationKey', function ($reque
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apikey','locationKey'=>'locationKey'];
+    $requiredParams = ['apiKey'=>'apikey','locationKey'=>'locationKey','days'=>'days'];
     $optionalParams = ['language'=>'language','details'=>'details'];
     $bodyParams = [
        'query' => ['language','details','apikey']
@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/get6HoursConditionsByLocationKey', function ($reque
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/currentconditions/v1/{$data['locationKey']}/historical.json";
+    $query_str = "http://dataservice.accuweather.com/indices/v1/daily/{$data['days']}/{$data['locationKey']}.json";
 
     
 

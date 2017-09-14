@@ -1,10 +1,10 @@
 <?php
 
-$app->post('/api/AccuWeather/getMinutesForecastByCoordinates', function ($request, $response) {
+$app->post('/api/AccuWeather/listCountries', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','coordinates','minutes']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','regionCode']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,10 +12,10 @@ $app->post('/api/AccuWeather/getMinutesForecastByCoordinates', function ($reques
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apikey','coordinates'=>'q','minutes'=>'minutes'];
-    $optionalParams = ['details'=>'details'];
+    $requiredParams = ['apiKey'=>'apikey','regionCode'=>'regionCode'];
+    $optionalParams = ['language'=>'language'];
     $bodyParams = [
-       'query' => ['q','apikey','details']
+       'query' => ['language','apikey']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/getMinutesForecastByCoordinates', function ($reques
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/forecasts/v1/minute/{$dara['minutes']}.json";
+    $query_str = "http://dataservice.accuweather.com/locations/v1/countries/{$data['regionCode']}.json";
 
     
 

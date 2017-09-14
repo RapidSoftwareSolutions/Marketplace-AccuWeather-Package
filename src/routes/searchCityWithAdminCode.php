@@ -1,10 +1,10 @@
 <?php
 
-$app->post('/api/AccuWeather/getRangeClimoRecordsByLocationKey', function ($request, $response) {
+$app->post('/api/AccuWeather/searchCityWithAdminCode', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','locationKey','start','end']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','countryCode','adminCode','query']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,20 +12,18 @@ $app->post('/api/AccuWeather/getRangeClimoRecordsByLocationKey', function ($requ
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apikey','locationKey'=>'locationKey','start'=>'start','end'=>'end'];
-    $optionalParams = [];
+    $requiredParams = ['apiKey'=>'apikey','countryCode'=>'countryCode','adminCode'=>'adminCode','query'=>'q'];
+    $optionalParams = ['language'=>'language','details'=>'details','offset'=>'offset','alias'=>'alias'];
     $bodyParams = [
-       'query' => ['apikey','start','end']
+       'query' => ['q','language','details','apikey','offset','alias']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
     
-    $data['start'] = \Models\Params::toFormat($data['start'], 'Y/m/d'); 
-    $data['end'] = \Models\Params::toFormat($data['end'], 'Y/m/d'); 
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/climo/v1/records/{$data['locationKey']}.json";
+    $query_str = "http://dataservice.accuweather.com/locations/v1/cities/{$data['countryCode']}/{$data['adminCode']}/search.json";
 
     
 

@@ -1,10 +1,10 @@
 <?php
 
-$app->post('/api/AccuWeather/getRangeClimoNormalsByLocationKey', function ($request, $response) {
+$app->post('/api/AccuWeather/listCyclonesByYear', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','locationKey','start','end']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','year']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,20 +12,19 @@ $app->post('/api/AccuWeather/getRangeClimoNormalsByLocationKey', function ($requ
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apikey','locationKey'=>'locationKey','start'=>'start','end'=>'end'];
-    $optionalParams = [];
+    $requiredParams = ['apiKey'=>'apikey','year'=>'year'];
+    $optionalParams = ['basinId'=>'basinId'];
     $bodyParams = [
-       'query' => ['apikey','start','end']
+       'query' => ['apikey']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
     
-    $data['start'] = \Models\Params::toFormat($data['start'], 'Y/m/d'); 
-    $data['end'] = \Models\Params::toFormat($data['end'], 'Y/m/d'); 
+    $data['year'] = \Models\Params::toFormat($data['year'], 'Y'); 
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/climo/v1/normals/{$data['locationKey']}.json";
+    $query_str = "http://dataservice.accuweather.com/tropical/v1/storms/{$data['year']}/{$data['basinId'].json";
 
     
 

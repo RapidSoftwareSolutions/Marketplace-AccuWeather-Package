@@ -1,10 +1,10 @@
 <?php
 
-$app->post('/api/AccuWeather/get6HoursConditionsByLocationKey', function ($request, $response) {
+$app->post('/api/AccuWeather/searchLocations', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','locationKey']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','query']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,10 +12,10 @@ $app->post('/api/AccuWeather/get6HoursConditionsByLocationKey', function ($reque
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apikey','locationKey'=>'locationKey'];
-    $optionalParams = ['language'=>'language','details'=>'details'];
+    $requiredParams = ['apiKey'=>'apikey','query'=>'q'];
+    $optionalParams = ['language'=>'language'];
     $bodyParams = [
-       'query' => ['language','details','apikey']
+       'query' => ['language','apikey','q']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/get6HoursConditionsByLocationKey', function ($reque
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/currentconditions/v1/{$data['locationKey']}/historical.json";
+    $query_str = "http://dataservice.accuweather.com/locations/v1/cities/autocomplete.json";
 
     
 
