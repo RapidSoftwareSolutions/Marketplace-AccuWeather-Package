@@ -46,7 +46,8 @@ $routes = [
     'getSingleCyclonePosition',
     'listLanguages',
     'listCyclonesByYear',
-    'listTranslationGroups'
+    'listTranslationGroups',
+    "getSingleIndice"
 ];
 foreach($routes as $file) {
     require __DIR__ . '/../src/routes/'.$file.'.php';

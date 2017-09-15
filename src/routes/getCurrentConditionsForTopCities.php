@@ -12,7 +12,7 @@ $app->post('/api/AccuWeather/getCurrentConditionsForTopCities', function ($reque
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'apikey'];
+    $requiredParams = ['apiKey'=>'apikey', 'group' => 'group'];
     $optionalParams = ['language'=>'language','details'=>'details'];
     $bodyParams = [
        'query' => ['language','details','apikey']
