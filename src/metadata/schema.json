@@ -2647,7 +2647,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "http:\/\/dataservice.accuweather.com\/locations\/v1\/cities\/ipaddress\/search.json",
+                "url": "http:\/\/dataservice.accuweather.com\/locations\/v1\/cities\/ipaddress.json",
                 "method": "get",
                 "requestParameters": [
                     {

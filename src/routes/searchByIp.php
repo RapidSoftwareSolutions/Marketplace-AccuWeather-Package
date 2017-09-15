@@ -23,7 +23,7 @@ $app->post('/api/AccuWeather/searchByIp', function ($request, $response) {
     
 
     $client = $this->httpClient;
-    $query_str = "http://dataservice.accuweather.com/locations/v1/cities/ipaddress/search.json";
+    $query_str = "http://dataservice.accuweather.com/locations/v1/cities/ipaddress.json";
 
     
 
