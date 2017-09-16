@@ -3339,7 +3339,7 @@
         },
         {
             "name": "getCurrentConditionsForTopCities",
-            "description": "Current Conditions for Top Cities",
+            "description": "Returns current conditions data for the top 50, 100, or 150 cities worldwide, based on rank.",
             "args": [
                 {
                     "name": "apiKey",
@@ -3349,6 +3349,13 @@
                     "vendorSchema": {
                         "name": "apikey"
                     }
+                },
+                {
+                    "name": "group",
+                    "type": "Select",
+                    "options": ["50", "100", "150"],
+                    "info": "Number of cities",
+                    "required": true
                 },
                 {
                     "name": "language",

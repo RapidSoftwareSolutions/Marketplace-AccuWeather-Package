@@ -300,6 +300,7 @@ Current Conditions for Top Cities
 |---------|------------|----------
 | apiKey  | credentials| Your API key
 | language| Select     | String indicating the language in which to return the resource
+| group   | Number     | Integer value (50, 100, or 150) that specifies the number of cities to return
 | details | Select     | Boolean value (true or false) that specifies whether or not to include a truncated version of the current conditions object or the full object
 
 ## AccuWeather.getLocationIndicesByGroupId
